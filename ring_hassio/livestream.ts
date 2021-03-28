@@ -196,8 +196,3 @@ if(!('RING_REFRESH_TOKEN' in process.env) || !('RING_PORT' in process.env) || !(
 else {
   startStream()
 }
-
-
-
-
-
