@@ -154,7 +154,7 @@ var chosenCamera = CAMERA_NAME;
       '-preset',
       'veryfast',
       '-g',
-      '25',
+      '90',
       '-sc_threshold',
       '0',
       '-f',
