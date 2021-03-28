@@ -149,23 +149,20 @@ var chosenCamera = CAMERA_NAME;
     await promisify(fs.mkdir)(publicOutputDirectory)
   }
   //
+	
   const sipSession = await camera.streamVideo({
     output: [
-      '-preset',
-      'veryfast',
-      '-g',
-      '90',
-      '-sc_threshold',
-      '0',
+      '-flags',
+      '+global_header',
       '-f',
-      'hls',
-      '-hls_time',
-      '2',
-      '-hls_list_size',
-      '6',
-      '-hls_flags',
-      'delete_segments',
-      path.join(publicOutputDirectory, 'stream.m3u8')
+      'segment',
+      '-segment_time',
+      '10', // 10 seconds
+      '-segment_format_options',
+      'movflags=+faststart',
+      '-reset_timestamps',
+      '1',
+      path.join(publicOutputDirectory, 'spart%d.mp4')
     ]
   })
 
